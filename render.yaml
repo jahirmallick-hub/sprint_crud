@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: lhg-project-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run api:start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
