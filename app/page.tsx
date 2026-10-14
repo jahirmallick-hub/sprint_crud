@@ -2,7 +2,11 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (process.env.NODE_ENV === "production"
+    ? "https://lhg-project-api.onrender.com"
+    : "http://localhost:4000");
 const STATUSES = ["To Do", "In Progress", "Done"] as const;
 const PRIORITIES = ["Low", "Medium", "High"] as const;
 const TEAM = ["Jahir", "Dipak", "Sandeep"] as const;

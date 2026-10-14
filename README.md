@@ -115,11 +115,14 @@ root directory, and add this environment variable before deploying:
 
 | Variable | Value |
 | --- | --- |
-| `NEXT_PUBLIC_API_URL` | `https://<your-render-service>.onrender.com` |
+| `NEXT_PUBLIC_API_URL` | `https://lhg-project-api.onrender.com` |
 
-After deployment, set the Render service's `FRONTEND_URL` to the Vercel site
-origin (for example, `https://your-project.vercel.app`) so the API accepts
-browser requests from the site.
+The frontend defaults to this API URL in production if the variable is not
+set; setting it explicitly in Vercel is recommended. Redeploy the frontend
+after changing the variable because Next.js bundles `NEXT_PUBLIC_` values at
+build time. Set the Render service's `FRONTEND_URL` to the Vercel site origin
+(for example, `https://your-project.vercel.app`) so the API accepts browser
+requests from the site.
 
 ### 4. Add optional sample data
 
